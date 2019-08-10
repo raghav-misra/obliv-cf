@@ -1,0 +1,19 @@
+.input-field{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input[type="text"]{
+    padding: 5px;
+    min-width: 255px;
+}
+
+[required-caption]::after{
+    content: " (Required)";
+    color: red;
+}
+
+[optional-caption]::after{
+    content: " (Optional)";
+    color: #007bff;
+}
