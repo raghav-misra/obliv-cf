@@ -1,1 +1,5 @@
-{"data_oblivion":"https://www.obliviontech.ml","data_create":"/create","data_influxion":"https://raghav-misra.github.io/influxion-rhythm-game","data_google":"https://google.com"}
+{
+    "data_create": "/create",
+    "data_influxion": "https://raghav-misra.github.io/influxion-rhythm-game",
+    "data_oblivion": "https://obliviontech.ml"
+}
