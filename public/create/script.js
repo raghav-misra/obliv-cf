@@ -1,13 +1,6 @@
 // Create Socket Variable:
 var socket = new io();
 
-/*
-{
-    "longURL": "https://www.obliviontech.ml",
-
-}
-*/
-
 function validURL(tester=""){
     var testURL = tester.trim();
     var pattern = new RegExp('((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
@@ -33,10 +26,14 @@ document.querySelector("#create-url").addEventListener("click", () => {
         alert("That URL doesn't look right!\nPlease check your input.");
         return;
     }
-
     socket.emit("createURL", {
         longURL: longURLTmp,
         shortCode: shortCodeTmp,
         randomShortCode: !(shortCodeTmp.length > 0)
     });
+});
+
+socket.on("returnNewURL", (dataArray)=>{
+    alert(dataArray[0]);
+    console.log(dataArray[1]);
 });

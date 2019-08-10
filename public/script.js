@@ -9,7 +9,8 @@ if(id == "") location.href = "/create"
 socket.emit("queryURL", id);
 
 socket.on("returnURL", (linkData)=>{
-    if(linkData.linkExists) location.href = linkData.longURL;
-    else location.href = "/create";
+    location.href = linkData;
 });
+
+
 
