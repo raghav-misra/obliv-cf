@@ -20,8 +20,8 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(666, function(){
-  console.log('listening on *:666');
+http.listen(8080, function(){
+  console.log('listening on *:8080');
 });
 
 function createNewURL(metadata){
