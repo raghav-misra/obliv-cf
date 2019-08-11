@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>obliv.cf - Short URLs Made Easy</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,6 +36,7 @@
                 <span class="lead"><code>obliv.cf?</code></span>
                 <input id="short-url-input" placeholder="Leave empty for random ending..." type="text">
             </div>
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
             <button id="create-url" class="btn btn-primary">Generate Short URL</button>
         </div>
     </div>
