@@ -1,10 +1,24 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
+var helmet = require('helmet');
+var morgan = require('morgan');
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var fs = require("fs");
 
 app.use(express.static(__dirname + "/public"));
+
+app.set('trust proxy', true); // <- required
+app.use((req, res, next) => {
+  if(!req.secure) return res.redirect('https://' + req.get('host') + req.url);
+  next();
+});
+
+app.use(helmet());
+app.use(cors());
+app.use(morgan('combined'));
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/');
@@ -26,22 +40,32 @@ http.listen(8080, function(){
 
 function createNewURL(metadata){
   var linksJSON = JSON.parse(fs.readFileSync('urls.json'));
-  if(linksJSON.hasOwnProperty("data_" + metadata.shortCode))
-    return ["That ending already exists!", "ERROR"];
-  if(metadata.randomShortCode){
-    var newId = "";
-    while(!linksJSON.hasOwnProperty("data_" + newId)){
-      newId = randomString(randomIntFromInterval(5,8));
+  try{
+    if(linksJSON.hasOwnProperty("data_" + metadata.shortCode))
+    return ["That ending already exists!", null];
+    if(metadata.randomShortCode){
+      var newId = "";
+      while(!linksJSON.hasOwnProperty("data_" + newId)){
+        newId = randomString(randomIntFromInterval(5,8));
+      }
+      return urlGen(newId, metadata.longURL, linksJSON);
     }
-    return urlGen(newId, metadata.longURL, linksJSON);
+    else return urlGen(metadata.shortCode, metadata.longURL, linksJSON);
   }
-  else return urlGen(metadata.shortCode, metadata.longURL, linksJSON);
+  catch(ex){
+    return [ex.toString(), null];
+  }
 }
 
 function urlGen(id, longURL, linksJSON){
-  linksJSON["data_" + id.trim()] = longURL;
-  fs.writeFileSync("urls.json", JSON.stringify(linksJSON));
-  return ["Success! Your shortened link is: " + "https://obliv.cf?" + id.trim(), id.trim()];
+  try{
+    linksJSON["data_" + id.trim()] = longURL;
+    fs.writeFileSync("urls.json", JSON.stringify(linksJSON));
+    return ["Success! Your shortened link is: " + "https://obliv.cf?" + id.trim(), id.trim()];
+  }
+  catch{
+    return ["Unexpected error!", null];
+  }
 }
 
 function getURL(id){
