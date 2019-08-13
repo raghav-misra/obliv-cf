@@ -1,3 +1,7 @@
+if(!location.href.startsWith("https://obliv.cf") && !location.href.startsWith("https://www.obliv.cf")){
+    location.href = "https://obliv.cf/create"
+}
+
 // Create Socket Variable:
 var socket = new io();
 
@@ -37,3 +41,7 @@ socket.on("returnNewURL", (dataArray)=>{
     alert(dataArray[0]);
     console.log(dataArray[1]);
 });
+
+if (location.protocol != 'https:') {
+ location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}

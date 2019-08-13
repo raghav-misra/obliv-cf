@@ -5,58 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>obliv.cf - Short URLs Made Easy</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <meta name="title" content="obliv.cf - Short URLs Made Easy">
+    <meta name="description" content="The questionable URL Shortener by Oblivion Tech.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://obliv.cf/">
+    <meta property="og:title" content="obliv.cf - Short URLs Made Easy">
+    <meta property="og:description" content="The questionable URL Shortener by Oblivion Tech.">
+    <meta property="og:image" content="https://cdn.glitch.com/474a6104-2a60-4496-84cf-6626e39f88b5%2Fprev.png?v=1565569738917">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://obliv.cf/">
+    <meta property="twitter:title" content="obliv.cf - Short URLs Made Easy">
+    <meta property="twitter:description" content="The questionable URL Shortener by Oblivion Tech.">
+    <meta property="twitter:image" content="https://cdn.glitch.com/474a6104-2a60-4496-84cf-6626e39f88b5%2Fprev.png?v=1565569738917">
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4"><code>obliv.cf</code></h1>
-            <hr>
-            <p class="lead">
-                The <i>questionable</i> URL Shortener by <a href="https://obliviontech.ml" target="_blank">Oblivion Tech</a>.<br>
-                <span style="font-weight: 300;" class="small">
-                    (That's funny cause the short links have question marks <kbd>?</kbd> in them. Not really though.)
-                </span>
-            </p>
+            <h1 class="title display-4"><code>obliv.cf</code></h1>
+            <div id="sub-header">
+                <hr>
+                <p class="lead">
+                    The <i>questionable</i> URL Shortener by <a href="https://obliviontech.ml" target="_blank">Oblivion Tech</a>.<br>
+                    <span style="font-weight: 300;" class="small">
+                        (That's funny cause the short links have question marks <kbd>?</kbd> in them. Not really though.)
+                    </span>
+                </p>
+            </div>     
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <code>Shorten A URL</code>
-        </div>
-        <div class="card-body">
-            <div class="input-field">
-                <p class="lead" required-caption>Original URL:<p>
-                <input id="long-url-input" placeholder="ex. https://www.obliviontech.ml" type="text">
+    <div style="text-align: center;">
+        <div class="card create-url">
+            <div class="card-header">
+                <h2>
+                    <code></code>
+                </h2>
             </div>
-            <div class="input-field">
-                <p class="lead" optional-caption>Custom Ending:</p>
-                <span class="lead"><code>obliv.cf?</code></span>
-                <input id="short-url-input" placeholder="Leave empty for random ending..." type="text">
+            <div class="card-body">
+                <div class="input-field">
+                <p class="lead" required-caption>Original URL:</p>
+                    <input id="long-url-input" placeholder="ex. https://www.obliviontech.ml" type="text">
+                </div>
+                <div class="input-field">
+                    <p class="lead" optional-caption>Custom Ending:</p>
+                    <span class="lead url-text-place"><code>obliv.cf?</code></span>
+                    <input id="short-url-input" placeholder="Leave empty for random ending..." type="text">
+                </div>
+                <div class="input-field">
+                    <p class="lead">
+                        <span optional-caption>Human Verification:</span><br>
+                        <span class="small" style="font-weight: 300;">
+                            Please complete 
+                            <a href="javascript:void(0);" onclick="alert('Just kidding! I\'m not evil!');">this</a> survey.
+                        </span>
+                    </p>
+                </div>   
+                <button id="create-url" class="btn btn-primary">Generate Short URL</button>
             </div>
-            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-            <button id="create-url" class="btn btn-primary">Generate Short URL</button>
         </div>
     </div>
-    <br><br><br>
-    <div class="card">
-        <div class="card-header">
-            <code>To-Do For Development</code>
-        </div>
-        <div class="card-body">
-            <p class="lead bullet">Add <code>obliv.cf</code> domain.</p>
-            <p class="lead bullet">Find a legitimate hosting service.</p>
-            <p class="lead bullet">Style Reboots?</p>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="card cred">
-        <p style="font-size: 35px;" class="lead">
-            Made With ❤ By <a href="https://obliviontech.ml">Oblivion Tech</a>
-        </p>
-    </div>
+    <p class="lead cred">
+        Made With ❤ By <a target="_blank" href="https://obliviontech.ml">Oblivion Tech</a>
+    </p>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

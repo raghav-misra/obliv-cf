@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700');
+
+html{
+    background: url('https://cdn.glitch.com/474a6104-2a60-4496-84cf-6626e39f88b5%2Fprev.png?v=1565569738917');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+    color: rgb(30, 35, 37);
+}
+
+hr{
+    border-color: white;
+}
+
+a:hover{
+    color: #007bff;
+}
+
+.jumbotron.jumbotron-fluid{
+    background: rgb(30, 35, 37);
+    color: white;
+}
+
+.card .card-header{
+    border-color: white;
+}
+
+kbd{
+    background: white;
+    color: rgb(30, 35, 37);
+}
+
+body{
+    background: none;
+}
+
 .input-field{
     margin-top: 15px;
     margin-bottom: 15px;
@@ -6,14 +44,24 @@
 input[type="text"]{
     padding: 5px;
     min-width: 255px;
+    color: white;
     outline: none;
+    background: rgb(30, 35, 37);
     border-radius: 7.5px;
-    border: 1.5px gray solid;
+    border: 1.5px white solid;
 }
 
 input[type="text"]:hover, input[type="text"]:focus{
     border-color: #007bff;
     
+}
+
+.card.create-url{
+    display: inline-block;
+    margin-left: auto;
+    border: 1px white solid;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgb(30, 35, 37);
 }
 
 [required-caption]::after{
@@ -26,12 +74,81 @@ input[type="text"]:hover, input[type="text"]:focus{
     color: #007bff;
 }
 
+.card{
+    overflow-x: hidden;
+    background: rgb(30, 35, 37);
+    color: white;
+}
+
 .cred{
-    text-align: center;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    display: inline-block;
+    right: 0;
+    border: none;
+    font-size: 25px;
+    padding: 10px;
 }
 
 .bullet::before{
     content: '• '
+}
+
+/* Media Queries */
+@media screen and (max-height: 875px) {
+    .cred{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #sub-header{
+        display: none;
+    }
+
+    .title{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .card.create-url{
+        display: block;
+        border-radius: 0;
+        border-color: transparent;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .url-text-place{
+        display: none;
+    }
+}
+
+@media screen and (max-height: 610px){
+    .card.create-url{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        height: 100vh;
+        left: 0;
+    }
+
+    .show-header{
+        display: inline;
+    }
+
+    .card-header h2 code::before{
+        content: 'obliv.cf' !important;
+    }
+
+    .jumbotron{
+        display: none;
+    }
+}
+
+.card-header h2 code::before{
+    content: 'Shorten A URL';
 }
